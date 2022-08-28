@@ -1,0 +1,16 @@
+[
+	{
+		"libelle": "jour",
+		"choices" :  [
+			{"libelle": "jour", "isCorrect":"true"},
+			{"libelle": "nuit", "isCorrect":"false"}
+		]
+	},
+	{
+		"libelle": "nuit",
+		"choices" :  [
+			{"libelle": "jour", "isCorrect":"false"},
+			{"libelle": "nuit", "isCorrect":"true"}
+		]
+	}
+]

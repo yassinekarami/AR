@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "641357850980",
+    "firebase_url": "https://arproject-9c53a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "arproject-9c53a",
+    "storage_bucket": "arproject-9c53a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641357850980:android:4be3f137ea075eb28ff271",
+        "android_client_info": {
+          "package_name": "com.yassinekarami.ARProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641357850980-24hm3vi3os0vpfvkf04nvjrc8objgiu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDukIpZrROunDALOm78oHCJy5s0iANdzFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641357850980-24hm3vi3os0vpfvkf04nvjrc8objgiu1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
