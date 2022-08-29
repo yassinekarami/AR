@@ -6,31 +6,37 @@ using UnityEngine.UI;
 using System;
 
 using Utils.Question;
-using Utils.Reponse;
+using Utils;
+using SceneManagement.QuizzSceneManager;
+using CustomEvent.IsOverEventArgument;
+
 public class QuestionManager : MonoBehaviour
 {
     // liste des questions qui seront afficher
-    public List<Question> questions;
+    public static List<Question> questions;
 
     // liste des reponses qui seront enregistré
-    public Response responses;
-    public Text questionText;
+    public static Response responses;
+    public static Text questionText;
 
     //timer du temps de réponse
-    public Text questionTimer;
+    public static Text questionTimer;
     float timer = 0.0f;
 
     public List<Button> button;
+    public bool isGameOver;
 
-    public Action<QuizzManager, bool> onIsOverChange;
-    QuizzManager quizzManager = QuizzManager.getInstance();
+
+    public event EventHandler<IsOverEventArgument> onIsGameOverChanged;
 
     public static QuestionManager questionmanager;
+    FirebaseManager firebase = FirebaseManager.getInstance();
     private void Awake()
     {
- 
-        setUpQuestion();
+        questionTimer = GameObject.Find("TimerText").GetComponent<Text>();
+        questionText = GameObject.Find("QuestionText").GetComponent<Text>();
         questionmanager = getInstance();
+        setUpQuestion();
     }
 
     public static QuestionManager getInstance()
@@ -41,7 +47,7 @@ public class QuestionManager : MonoBehaviour
         }
         else 
         {
-            return QuestionManager.questionmanager;
+            return questionmanager;
         }
     }
 
@@ -67,7 +73,6 @@ public class QuestionManager : MonoBehaviour
         questionTimer.text = seconds.ToString();
         if (seconds.Equals(5))
         {
-      
             StartCoroutine(getNextQuestion());
         }
     }
@@ -94,23 +99,22 @@ public class QuestionManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if(questions.Count <= 0)
         {
-            FirebaseManager.fireBaseManager.saveResponse(responses);
+         //   FirebaseManager.fireBaseManager.saveResponse(responses);
         }
         try
         {
            timer = 0;
            Question q = questions[0];
+           Debug.Log(q.libelle);
            questionText.text = q.libelle;
            for (int i = 0; i < q.choices.Count; i++)
            {
                 button[i].GetComponent<ButtonScript>().Init(q.choices[i]);
            }
-            questions.RemoveAt(0);
+           questions.RemoveAt(0);
         } catch(ArgumentOutOfRangeException e)
         {
-            quizzManager.isOverChangeEvent += (s, args) => { };
-            quizzManager.onIsOverChange(false);
-
+            onIsGameOverChanged?.Invoke(this, new IsOverEventArgument { isGameOver = true });
         }
     }
 

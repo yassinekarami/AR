@@ -1,15 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-using Utils.Reponse;
-public class ButtonScript : MonoBehaviour, IPointerClickHandler
+using Utils;
+using CustomEvent.SelectedChoixEventArgument;
+public class ButtonScript : MonoBehaviour
 {
     public Choix choix;
     Button button;
     Color normalColor;
- 
 
+    public EventHandler<SelectedChoixEventArgument> selectedChoixEvent;
     void Awake()
     {
         button = gameObject.GetComponent<Button>();
@@ -22,12 +24,6 @@ public class ButtonScript : MonoBehaviour, IPointerClickHandler
         this.choix = choix;  
     }
 
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        changeColor();
-        QuestionManager.questionmanager.getAnswer(choix);
-    }
     private void changeColor()
     {
         if (choix.isCorrect)
@@ -39,4 +35,21 @@ public class ButtonScript : MonoBehaviour, IPointerClickHandler
             button.GetComponent<Image>().color = Color.red;
         }
     }
+
+    public void checkAnswer()
+    {
+        changeColor();
+//        QuestionManager.questionmanager.getAnswer(choix);
+    }
+
+    public void onSelectedChoix()
+    {
+        SelectedChoixEventArgument selectedChoixEventArgument = new SelectedChoixEventArgument();
+        selectedChoixEventArgument.choix = choix;
+
+        selectedChoixEvent.Invoke(this, selectedChoixEventArgument);
+
+    }
+   
+
 }

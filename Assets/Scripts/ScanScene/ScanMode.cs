@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
 using TMPro;
+using SceneManagement.Manager;
 public class ScanMode : Mode
 {
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
+using SceneManagement.Manager;
 public class ToggleManager : MonoBehaviour
 {
     private ToggleGroup toggleGroup;

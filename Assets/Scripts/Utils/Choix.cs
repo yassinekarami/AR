@@ -1,6 +1,6 @@
 
 
-namespace Utils.Reponse
+namespace Utils
 {
     public class Choix
     {
