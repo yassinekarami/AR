@@ -1,6 +1,6 @@
 using CustomEvent.IsOverEventArgument;
-using System;
 using UnityEngine;
+using Assets.Scripts.QuizzScene;
 
 namespace SceneManagement.QuizzSceneManager
 {
@@ -43,10 +43,11 @@ namespace SceneManagement.QuizzSceneManager
 
         public void onIsOverChanged(object sender, IsOverEventArgument e)
         {
-            Debug.Log("fin de partie");
             bool isGameOver = e.isGameOver;
             gameOverPanel.SetActive(isGameOver);
             gameProgessPanel.SetActive(!isGameOver);
+
+            // launch Firebase
         }
 
     }
