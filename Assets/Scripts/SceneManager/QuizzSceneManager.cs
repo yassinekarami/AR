@@ -14,13 +14,16 @@ namespace SceneManagement.QuizzSceneManager
 
         private void Awake()
         {
+            Debug.Log("QuizzSceneManager : awake");
             quizzSceneManager = getInstance();
+            Debug.Log("GpsSceneManager instance " + quizzSceneManager.GetInstanceID());
             gameProgessPanel = GameObject.Find("GameProgressPanel");
             gameOverPanel = GameObject.Find("GameOver");
         }
 
         private void Start()
         {
+            Debug.Log("QuizzSceneManager : Start");
             qm = gameProgessPanel.GetComponent<QuestionManager>();
             qm.onIsGameOverChanged += onIsOverChanged;
         }
@@ -38,7 +41,6 @@ namespace SceneManagement.QuizzSceneManager
             {
                 return quizzSceneManager;
             }
-
         }
 
         public void onIsOverChanged(object sender, IsOverEventArgument e)

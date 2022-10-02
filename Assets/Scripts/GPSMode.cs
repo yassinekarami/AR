@@ -12,8 +12,10 @@ public class GPSMode : Mode
 
     void Start()
     {
+        Debug.Log("Lauching gps");
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        perform();
         
     }
 

@@ -3,14 +3,13 @@ using Firebase.Database;
 using Newtonsoft.Json;
 
 
-public class FirebaseManager
+public class FirebaseManager : MonoBehaviour
 {
     DatabaseReference reference;
-    public FirebaseManager()
+    private void Awake()
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
-
 
     public void saveResponse(Response responses)
     {

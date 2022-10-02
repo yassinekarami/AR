@@ -467,6 +467,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2074063848, guid: 36069b321d6855b40bba9434869ffbc3, type: 3}
+      propertyPath: m_Text
+      value: Question TEXT
+      objectReference: {fileID: 0}
     - target: {fileID: 122040776000166594, guid: 36069b321d6855b40bba9434869ffbc3,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -521,6 +525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298094803299569277, guid: 36069b321d6855b40bba9434869ffbc3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1298094804093045542, guid: 36069b321d6855b40bba9434869ffbc3,
         type: 3}
@@ -651,6 +660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298094804174139901, guid: 36069b321d6855b40bba9434869ffbc3,
+        type: 3}
+      propertyPath: m_IsOn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1298094804292844389, guid: 36069b321d6855b40bba9434869ffbc3,
         type: 3}
