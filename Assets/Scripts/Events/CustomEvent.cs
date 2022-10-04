@@ -16,3 +16,15 @@ namespace CustomEvent.SelectedChoixEventArgument
         public Choix choix { get; set; }
     }
 }
+
+namespace CustomEvent.AccountArgument
+{
+    public class AccountEvent : EventArgs
+    {
+        public bool isUserSignedIn { get; set; }
+
+        public string email { get; set; }
+
+        public string password { get; set;}
+    }
+}
