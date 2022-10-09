@@ -29,4 +29,5 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_LICENCE: ${{ secrets.UNITY_EMAIL }}
         with:
+          projectPath: ../../
           targetPlatform: Android
