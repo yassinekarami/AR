@@ -22,6 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/cache@v2
         with:
           path: Library
@@ -35,4 +36,3 @@ jobs:
           UNITY_LICENCE: ${{ secrets.UNITY_EMAIL }}
         with:
           targetPlatform: Android
-          projectPath: ./
