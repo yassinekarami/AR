@@ -17,14 +17,23 @@ namespace CustomEvent.SelectedChoixEventArgument
     }
 }
 
-namespace CustomEvent.AccountArgument
+namespace CustomEvent.UserAccountEvents
 {
-    public class AccountEvent : EventArgs
+    public class CreateAccountArguments : EventArgs
     {
         public bool isUserSignedIn { get; set; }
 
         public string email { get; set; }
 
         public string password { get; set;}
+    }
+
+    public class LogInArguments: EventArgs
+    {
+        public bool isUserSignedIn { get; set; }
+
+        public string email { get; set; }
+
+        public string password { get; set; }
     }
 }

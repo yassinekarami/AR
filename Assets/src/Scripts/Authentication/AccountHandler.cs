@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Auth;
-using CustomEvent.AccountArgument;
+using CustomEvent.UserAccountEvents;
 
 public class AccountHandler : MonoBehaviour
 {
    FirebaseAuth auth;
 
     public CredentialsInputHandler credentialsInputHandler;
+    public LogInInputHandler logInInputHandler;
     private void Awake()
     {
         auth = FirebaseAuth.DefaultInstance;
@@ -18,13 +19,13 @@ public class AccountHandler : MonoBehaviour
     private void Start()
     {
         credentialsInputHandler.onUserCreateAccount += createAccount;
-        credentialsInputHandler.onIsUserSigneIn += userSignedIn;
+        logInInputHandler.onUserLogIn += userLogIn;
     }
 
     /**
      * Evenement pour la creation d'un compte
      */
-    public void createAccount(object sender, AccountEvent e)
+    public void createAccount(object sender, CreateAccountArguments e)
     {
         createAccount(e.email, e.password);
     }
@@ -32,16 +33,16 @@ public class AccountHandler : MonoBehaviour
     /**
      * Evenement pour la connexion de l'utilisateur
      */
-    public void userSignedIn(object sender, AccountEvent e)
+    public void userLogIn(object sender, LogInArguments e)
     {
-        signIn(e.email, e.password);
+        logIn(e.email, e.password);
     }
 
 
     /**
      *  permet a l'utilisateur de se connecter
      */
-    private void signIn(string email, string password)
+    private void logIn(string email, string password)
     {
         Debug.Log("signIn" + email + " " + password);
         auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
 using TMPro;
-using SceneManagement.Manager;
+using Utils.SceneManagement.Manager;
 public class ScanMode : Mode
 {
 
@@ -74,7 +74,7 @@ public class ScanMode : Mode
             Result result = barcodeReader.Decode(cameraTexture.GetPixels32(), cameraTexture.width, cameraTexture.height) ;
             if(result != null)
             {
-                Manager.loadScene("sceneName");
+                Manager.Load("sceneName");
             }
         } catch
         {

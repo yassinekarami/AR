@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using TMPro;
 using System.Text.RegularExpressions;
-using CustomEvent.AccountArgument; 
+using CustomEvent.UserAccountEvents; 
 // invoke event 
-public class CredentialsInputHandler : MonoBehaviour
+public class CredentialsInputHandler : MonoBehaviour, IAccountStrategy
 {
     public GameObject emailInput;
     public GameObject pwdInput;
@@ -19,8 +19,7 @@ public class CredentialsInputHandler : MonoBehaviour
     bool isPwdConfirmValid = false;
 
 
-    public event EventHandler<AccountEvent> onIsUserSigneIn;
-    public event EventHandler<AccountEvent> onUserCreateAccount;
+    public event EventHandler<CreateAccountArguments> onUserCreateAccount;
 
     public void emailValidation()
     {
@@ -50,7 +49,7 @@ public class CredentialsInputHandler : MonoBehaviour
         MatchCollection matches = rx.Matches(pwd);
         if (matches.Count > 0)
         {
-            isPwdValid = true; ;
+            isPwdValid = true; 
         }
         
     }
@@ -65,35 +64,20 @@ public class CredentialsInputHandler : MonoBehaviour
         }
     }
 
+
+
     /**
-     * Verfie le formulaire
+     * Verifie le formulaire 
+     * 
      * Envoi un evenement pour déclancher la creation du compte
      */
-    public void createAccountformValidation()
+    public void validateForm()
     {
         Debug.Log("CrendentialsInputHandler formValidation");
         if (isEmailValid && isPwdValid && isPwdConfirmValid)
         {
             Debug.Log("form is valid");
-            onUserCreateAccount?.Invoke(this, new AccountEvent { isUserSignedIn = true , email = email, password = pwd});
-        }
-        else
-        {
-            Debug.Log("form is invalid");
-        }
-    }
-
-    /**
-     * Verifie le formulaire 
-     * Envoi un evenement pour la declancher la connexion
-     */
-    public void signInformValidation()
-    {
-        Debug.Log("CrendentialsInputHandler formValidation");
-        if (isEmailValid && isPwdValid)
-        {
-            Debug.Log("form is valid");
-            onIsUserSigneIn?.Invoke(this, new AccountEvent { isUserSignedIn = true, email = email, password = pwd });
+            onUserCreateAccount?.Invoke(this, new CreateAccountArguments { isUserSignedIn = true, email = email, password = pwd });
         }
         else
         {

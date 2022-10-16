@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-using SceneManagement.Manager;
+using Utils.SceneManagement.Manager;
 public class ToggleManager : MonoBehaviour
 {
     private ToggleGroup toggleGroup;
@@ -31,6 +31,6 @@ public class ToggleManager : MonoBehaviour
 
         //TODO: remplacer par un system d'evenement
         //la manager ne doit pas etre appelé directement
-        Manager.loadScene(change.gameObject.tag.ToString());
+        Manager.Load(change.gameObject.tag.ToString());
     }
 }
