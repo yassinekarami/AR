@@ -1,19 +1,18 @@
+/*using Firebase.Auth;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Utils.SceneManagement.Manager
 {
-    public static class Manager
+    public class Manager 
     {
-
-
-        private static System.Collections.Generic.Dictionary<string, string> parameters;
 
         public static void Load(string sceneName, System.Collections.Generic.Dictionary<string, string> parameters = null)
         {
             Manager.parameters = parameters;
             SceneManager.LoadScene(sceneName);
         }
+
 
         public static void Load(string sceneName, string paramKey, string paramValue)
         {
@@ -22,7 +21,7 @@ namespace Utils.SceneManagement.Manager
             SceneManager.LoadScene(sceneName);
         }
 
-        public static System.Collections.Generic.Dictionary<string, string> getSceneParameters()
+        public static Dictionary<string, string> getSceneParameters()
         {
             return parameters;
         }
@@ -40,6 +39,58 @@ namespace Utils.SceneManagement.Manager
                 Manager.parameters = new System.Collections.Generic.Dictionary<string, string>();
             }
             Manager.parameters.Add(paramKey, paramValue);
+        }
+
+    }
+
+}
+*/
+
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
+namespace Utils.SceneManagement.Manager
+{
+    public static class Manager<T>
+    {
+
+        public static Dictionary<string, T> parameters;
+
+
+        public static void Load(string sceneName, Dictionary<string, T> parameter = null)
+        {
+            parameters = parameter;
+            SceneManager.LoadScene(sceneName);
+        }
+
+
+
+        public static void Load(string sceneName, string paramKey, T paramValue)
+        {
+            parameters = new Dictionary<string, T>();
+
+            parameters.Add(paramKey, paramValue);
+            SceneManager.LoadScene(sceneName);
+        }
+
+        public static Dictionary<string, T> getSceneParameters()
+        {
+            return parameters;
+        }
+
+        public static T getParam(string paramKey)
+        {
+            if (parameters == null) return default(T);
+            return parameters[paramKey];
+        }
+
+        public static void setParam(string paramKey, T paramValue)
+        {
+            if (parameters == null)
+            {
+                parameters = new Dictionary<string, T>();
+            }
+            parameters.Add(paramKey, paramValue);
         }
     }
 

@@ -4,18 +4,16 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using CustomEvent.UserAccountEvents;
-
+using Utils.SceneManagement.Manager;
+using Utils.Constants;
 public class AccountHandler : MonoBehaviour
 {
-   FirebaseAuth auth;
 
     public CredentialsInputHandler credentialsInputHandler;
     public LogInInputHandler logInInputHandler;
-    private void Awake()
-    {
-        auth = FirebaseAuth.DefaultInstance;
-    }
 
+    private string CURRENT_USER_STRING = SceneParameter.CURRENT_USER_STRING;
+    private string SCENE_MAIN_NAME = SceneName.SCENE_MAIN_NAME;
     private void Start()
     {
         credentialsInputHandler.onUserCreateAccount += createAccount;
@@ -44,23 +42,12 @@ public class AccountHandler : MonoBehaviour
      */
     private void logIn(string email, string password)
     {
-        Debug.Log("signIn" + email + " " + password);
-        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
-            if (task.IsCanceled)
-            {
-                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted)
-            {
-                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                return;
-            }
-
-            FirebaseUser newUser = task.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})",
-                newUser.DisplayName, newUser.UserId);
-        });
+        Debug.Log("signIn " + email + " " + password);
+        FirebaseManager.logIn(email, password);
+        if(FirebaseManager.getUserInformation() != null)
+        {
+            Manager<FirebaseUser>.Load(SCENE_MAIN_NAME, CURRENT_USER_STRING, FirebaseManager.getUserInformation());
+        }
     }
 
     /**
@@ -69,49 +56,6 @@ public class AccountHandler : MonoBehaviour
     private void createAccount(string email, string password)
     {
         Debug.Log("create accounrd " + email + " " + password);
-        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
-            if (task.IsCanceled)
-            {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted)
-            {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                return;
-            }
-
-            // Firebase user has been created.
-            FirebaseUser newUser = task.Result;
-            Debug.LogFormat("Firebase user created successfully: {0} ({1})",
-                newUser.DisplayName, newUser.UserId);
-        });
-    }
-    
-    /**
-     *  retourne l'utilisateur connecté
-     */
-    private FirebaseUser getUserInformation()
-    {
-        /*    Firebase.Auth.FirebaseUser user = auth.CurrentUser;
-            if (user != null)
-            {
-                string name = user.DisplayName;
-                string email = user.Email;
-                System.Uri photo_url = user.PhotoUrl;
-                // The user's Id, unique to the Firebase project.
-                // Do NOT use this value to authenticate with your backend server, if you
-                // have one; use User.TokenAsync() instead.
-                string uid = user.UserId;
-            }*/
-        return auth.CurrentUser;
-    }
-
-    /**
-     * permet de se deconnecter
-     */
-    private void signOut()
-    {
-        auth.SignOut();
+      //  FirebaseManager.createAccount(email, password);
     }
 }

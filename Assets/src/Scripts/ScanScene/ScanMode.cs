@@ -74,7 +74,7 @@ public class ScanMode : Mode
             Result result = barcodeReader.Decode(cameraTexture.GetPixels32(), cameraTexture.width, cameraTexture.height) ;
             if(result != null)
             {
-                Manager.Load("sceneName");
+                Manager<string>.Load("sceneName");
             }
         } catch
         {

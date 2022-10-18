@@ -1,8 +1,6 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utils.SceneManagement.Manager;
+using Utils.Constants;
 public class CredentialsSceneManager : MonoBehaviour
 {
     public GameObject credentialsInputHandler;
@@ -14,19 +12,17 @@ public class CredentialsSceneManager : MonoBehaviour
     }
     private void Start()
     {
-       Debug.Log("option : " + Manager.getParam("option"));
+       Debug.Log("option : " + Manager<string>.getParam(SceneParameter.CRENDENTIALS_CHOOSEN_OPTION));
        // mainSceneManager.onCredentialsScenehoosen += credentialsOption;
-       if(Manager.getParam("option").Equals("1"))
+       if(Manager<string>.getParam(SceneParameter.CRENDENTIALS_CHOOSEN_OPTION).Equals("1"))
        {
             credentialsInputHandler.SetActive(true);
             logInInputHandler.SetActive(false);
        } 
-       else if (Manager.getParam("option").Equals("0"))
+       else if (Manager<string>.getParam(SceneParameter.CRENDENTIALS_CHOOSEN_OPTION).Equals("0"))
        {
             credentialsInputHandler.SetActive(false);
             logInInputHandler.SetActive(true);
        }
-       
     }
-
 }

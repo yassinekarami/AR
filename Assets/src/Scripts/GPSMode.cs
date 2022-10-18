@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//https://docs.mapbox.com/unity/maps/examples/location-based-game/
+//https://docs.mapbox.com/help/glossary/style/
 public class GPSMode : Mode
 {
 

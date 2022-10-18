@@ -31,6 +31,6 @@ public class ToggleManager : MonoBehaviour
 
         //TODO: remplacer par un system d'evenement
         //la manager ne doit pas etre appelé directement
-        Manager.Load(change.gameObject.tag.ToString());
+        Manager<string>.Load(change.gameObject.tag.ToString());
     }
 }
