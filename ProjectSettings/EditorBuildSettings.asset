@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/src/Scenes/MainScene.unity
     guid: 3b5ea1bec34628f479398b01953e0756
   - enabled: 1
-    path: Assets/Scenes/ScanScene.unity
+    path: Assets/src/Scenes/ScanScene.unity
     guid: cc36a1c1e8648e44c831be036332997b
   - enabled: 1
-    path: Assets/Scenes/QuizzScene.unity
+    path: Assets/src/Scenes/QuizzScene.unity
     guid: dc1bdbf347d95d04ab7e636e22782f94
   - enabled: 1
-    path: Assets/Scenes/GPSScene.unity
+    path: Assets/src/Scenes/GPSScene.unity
     guid: d9abc9a99cdc7774886423e16a9fcef6
   - enabled: 1
-    path: Assets/Scenes/CredentialsScene.unity
+    path: Assets/src/Scenes/CredentialsScene.unity
     guid: ecf074ca967a5a345a367bc8ecd366e9
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,

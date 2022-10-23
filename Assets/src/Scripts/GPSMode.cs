@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//https://docs.mapbox.com/unity/maps/examples/location-based-game/
-//https://docs.mapbox.com/help/glossary/style/
+//https://developers.arcgis.com/unity/install-and-set-up/
+
+//https://blogs.bing.com/maps/2019-09/get-up-and-running-with-the-maps-sdk-for-unity
+//https://blogs.bing.com/maps/2022-06/Getting-Started-Building-Offline-Maps-App-for-Windows
+//https://github.com/microsoft/MapsSDK-Unity/wiki/TextureTileLayer
 public class GPSMode : Mode
 {
 

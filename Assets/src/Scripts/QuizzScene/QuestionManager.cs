@@ -114,6 +114,7 @@ namespace Assets.Scripts.QuizzScene
             }
             catch (ArgumentOutOfRangeException e)
             {
+                Debug.Log(e);
                 onIsGameOverChanged?.Invoke(this, new IsOverEventArgument { isGameOver = true });
             }
         }
