@@ -210,7 +210,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -6969831806815839526}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Zoom
         m_Mode: 1
@@ -235,8 +235,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4545156311932626}
   - component: {fileID: 114401410002030188}
-  - component: {fileID: 8485608606784131832}
-  - component: {fileID: -6969831806815839526}
+  - component: {fileID: 2102146218514130939}
+  - component: {fileID: 8635735276279934782}
   m_Layer: 0
   m_Name: SmallMapPin
   m_TagString: Untagged
@@ -304,19 +304,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _showOutsideMapBounds: 0
---- !u!114 &8485608606784131832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452448874978094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23862c6b28b2c4e4da5cb1c1f3bb0e95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-6969831806815839526
+--- !u!114 &2102146218514130939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,6 +314,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c72234033e49d7d40b61c6bfa1f6ac5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8635735276279934782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452448874978094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13d7f749ffc8c2459cd4409ec657019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1748168262977102

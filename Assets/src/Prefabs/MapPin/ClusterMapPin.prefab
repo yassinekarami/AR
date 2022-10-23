@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4839544136374242}
   - component: {fileID: 114898586744110094}
   - component: {fileID: 114896553018143308}
-  - component: {fileID: 114794147355131198}
-  - component: {fileID: -3274586969950725506}
+  - component: {fileID: 8394576754897709664}
+  - component: {fileID: 5629427753375709639}
   m_Layer: 0
   m_Name: ClusterMapPin
   m_TagString: Untagged
@@ -89,10 +89,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1366522844636312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23862c6b28b2c4e4da5cb1c1f3bb0e95, type: 3}
+  m_Script: {fileID: 11500000, guid: e13d7f749ffc8c2459cd4409ec657019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114794147355131198
+--- !u!114 &8394576754897709664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,10 +101,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1366522844636312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3870ec11c1f780843af976df8e129657, type: 3}
+  m_Script: {fileID: 11500000, guid: 5235521ea66b9bb4ea538754011ff2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3274586969950725506
+--- !u!114 &5629427753375709639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1366522844636312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d656e5833569047bbe49922f1447c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 91b8c0b4b278da249a6660f337e0066d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1427262201316610
@@ -435,7 +435,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -3274586969950725506}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Zoom
         m_Mode: 1
